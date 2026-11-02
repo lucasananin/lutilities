@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace lutilities.DataTypeSO
 {
-    public class GenericDataTypeUI<T> : MonoBehaviour
+    public class BaseDataTypeUI<T> : MonoBehaviour
     {
         [SerializeField] protected TextMeshProUGUI _text;
-        [SerializeField] protected GenericDataTypeSO<T> _data;
+        [SerializeField] protected BaseDataTypeSO<T> _data;
 
         protected virtual void OnEnable()
         {

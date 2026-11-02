@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace lutilities.DataTypeSO
 {
-    public abstract class GenericDataTypeSO<T> : ScriptableObject
+    public abstract class BaseDataTypeSO<T> : ScriptableObject
     {
         [SerializeField] protected T _currentValue;
 
