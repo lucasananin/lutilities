@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace lutilities.Pooling
 {
-    public abstract class BasePoolSpawner<T, TPool> : MonoBehaviour
+    public abstract class BasePoolSOSpawner<T, TPool> : MonoBehaviour
         where T : Component
         where TPool : BasePoolSO<T>
     {

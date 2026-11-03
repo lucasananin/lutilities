@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b428326417d4d489681292b1540c3c, type: 3}
-  m_Name: Pool_Transform
-  m_EditorClassIdentifier: Assembly-CSharp::lutilities.Pooling.TransformPoolSO
-  _prefab: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8230cdef2dde1534d9c856cc4f410757, type: 3}
+  m_Name: PoolData_Transform
+  m_EditorClassIdentifier: Assembly-CSharp::TransformPoolDataSO
+  _prefab: {fileID: 5497390069606630587, guid: 93e88c9d73d6efa44b72e41ac818d571, type: 3}
   _initialSize: 10

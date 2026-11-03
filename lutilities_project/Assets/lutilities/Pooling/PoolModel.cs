@@ -3,21 +3,15 @@ using UnityEngine;
 
 namespace lutilities.Pooling
 {
-    public abstract class BasePoolSO<T> : ScriptableObject where T : Component
+    [System.Serializable]
+    public class PoolModel<T> where T : Component
     {
-        [Header("Pool Settings")]
         [SerializeField] private T _prefab;
         [SerializeField] private int _initialSize = 10;
 
         private readonly List<T> _pool = new();
         private readonly List<T> _activeObjects = new();
         private Transform _poolParent;
-
-        private void OnEnable()
-        {
-            _pool.Clear();
-            _activeObjects.Clear();
-        }
 
         public void Initialize(Transform poolParent)
         {
@@ -39,6 +33,7 @@ namespace lutilities.Pooling
                 if (!obj.gameObject.activeInHierarchy)
                 {
                     obj.gameObject.SetActive(true);
+                    //_pool.Remove(obj);
                     _activeObjects.Add(obj);
 
                     return obj;
@@ -55,6 +50,7 @@ namespace lutilities.Pooling
         {
             if (!_activeObjects.Remove(obj)) return;
 
+            //_pool.Add(obj);
             obj.gameObject.SetActive(false);
             obj.transform.SetParent(_poolParent);
         }
@@ -70,13 +66,25 @@ namespace lutilities.Pooling
 
         private T CreateObject(bool activate = false)
         {
-            T obj = Instantiate(_prefab, _poolParent);
+            T obj = Object.Instantiate(_prefab, _poolParent);
 
             obj.gameObject.SetActive(activate);
 
             _pool.Add(obj);
 
             return obj;
+        }
+
+        public void ClearCollections()
+        {
+            _pool.Clear();
+            _activeObjects.Clear();
+        }
+
+        public void InitData<U>(BasePoolDataSO<T> dataSO) where U : Component
+        {
+            _prefab = dataSO.Prefab;
+            _initialSize = dataSO.InitialSize;
         }
     }
 }
