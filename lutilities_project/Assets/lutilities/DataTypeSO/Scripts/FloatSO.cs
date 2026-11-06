@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace lutilities.DataTypeSO
 {
-    [CreateAssetMenu(fileName = "FloatSO", menuName = "Scriptable Objects/Data Type/Float")]
+    [CreateAssetMenu(fileName = "Float_", menuName = "Scriptable Objects/Data Type/Float")]
     public class FloatSO : BaseDataTypeSO<float>
     {
     }

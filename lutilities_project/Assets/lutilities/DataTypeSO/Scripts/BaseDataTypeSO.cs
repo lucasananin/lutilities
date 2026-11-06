@@ -5,25 +5,25 @@ namespace lutilities.DataTypeSO
 {
     public abstract class BaseDataTypeSO<T> : ScriptableObject
     {
-        [SerializeField] protected T _currentValue;
+        [SerializeField] protected T _value;
 
         public UnityAction<T> OnChanged = null;
 
-        public T CurrentValue
+        public T Value
         {
-            get => _currentValue;
-            set => _currentValue = value;
+            get => _value;
+            set => _value = value;
         }
 
         public void Set(T newValue)
         {
-            _currentValue = newValue;
-            OnChanged?.Invoke(_currentValue);
+            _value = newValue;
+            OnChanged?.Invoke(_value);
         }
 
         public T Get()
         {
-            return _currentValue;
+            return _value;
         }
     }
 }
