@@ -65,7 +65,7 @@ namespace lutilities.Audio
 
         private string GetKey()
         {
-            return $"Pref_{exposedParameter}";
+            return $"Pref_{exposedParameter.Value}";
         }
     }
 }
