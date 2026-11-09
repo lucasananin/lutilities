@@ -2,7 +2,7 @@ using UnityEngine.UI;
 
 namespace lutilities.Audio
 {
-    public class ButtonAudioPlayer : AudioPlayer
+    public class AudioButton : AudioPlayer
     {
         private Button _button = null;
 
