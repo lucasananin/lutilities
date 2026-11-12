@@ -20,8 +20,8 @@ namespace lutilities.UI
         public event UnityAction OnShow = null;
         public event UnityAction OnHide = null;
 
-        public static UnityAction<CanvasView> OnAnyShow = null;
-        public static UnityAction<CanvasView> OnAnyHide = null;
+        public static UnityAction<CanvasView> OnAnyShowed = null;
+        public static UnityAction<CanvasView> OnAnyHidden = null;
 
         private void Awake()
         {
@@ -63,7 +63,8 @@ namespace lutilities.UI
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
             OnShow?.Invoke();
-            OnAnyShow?.Invoke(this);
+            OnShow_Event?.Invoke();
+            OnAnyShowed?.Invoke(this);
         }
 
         public void Hide()
@@ -81,7 +82,8 @@ namespace lutilities.UI
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
             OnHide?.Invoke();
-            OnAnyHide?.Invoke(this);
+            OnHide_Event?.Invoke();
+            OnAnyHidden?.Invoke(this);
         }
 
         public void InstantShow()
@@ -91,7 +93,8 @@ namespace lutilities.UI
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
             OnShow?.Invoke();
-            OnAnyShow?.Invoke(this);
+            OnShow_Event?.Invoke();
+            OnAnyShowed?.Invoke(this);
         }
 
         public void InstantHide()
@@ -101,7 +104,8 @@ namespace lutilities.UI
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
             OnHide?.Invoke();
-            OnAnyHide?.Invoke(this);
+            OnHide_Event?.Invoke();
+            OnAnyHidden?.Invoke(this);
         }
 
         public void ShowAndHide()
