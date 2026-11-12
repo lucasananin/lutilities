@@ -14,12 +14,29 @@ namespace lutilities.TagCollections
             return _tags != null && Array.Exists(_tags, t => t.Value == tag);
         }
 
+        private void OnValidate()
+        {
+            if (_tags == null)
+                return;
+
+            foreach (var tag in _tags)
+            {
+                if (tag == null || string.IsNullOrEmpty(tag.Value))
+                    tag.SetDefault();
+            }
+        }
+
         [Serializable]
         public class TagEntry
         {
-            [SerializeField] private string _value = "Untagged";
+            [SerializeField] private string _value = default;
 
             public string Value => _value;
+
+            public void SetDefault()
+            {
+                _value = "Untagged";
+            }
         }
     }
 }
