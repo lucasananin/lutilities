@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using UnityEngine;
 
 namespace lutilities.General
 {
@@ -71,6 +72,17 @@ namespace lutilities.General
 
                 Swap(collection, i, randomIndex);
             }
+        }
+
+        public static void SortByDistance<T>(List<T> list, Vector3 referencePosition, Func<T, Vector3> getPosition)
+        {
+            list.Sort((a, b) =>
+            {
+                float distanceA = (getPosition(a) - referencePosition).sqrMagnitude;
+                float distanceB = (getPosition(b) - referencePosition).sqrMagnitude;
+
+                return distanceA.CompareTo(distanceB);
+            });
         }
     }
 }
