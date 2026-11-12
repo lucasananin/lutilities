@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-namespace lutilities
+namespace lutilities.Audio
 {
     public class AudioToggle : MonoBehaviour
     {
